@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Aplicacion</title>
+  <title>Slag team</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="blue white-text large-padding bold text-center" style="display:none;">
-		<p class="no-padding no-margin inline-block"></p>
-		<span class="pull-right close-parent">X</span>
-	</div>
+  <div class="blue white-text large-padding bold text-center" style="<%= "display:none;" if alert.nil? && notice.nil? %>">
+    <p class="no-padding no-margin inline-block"><%= notice %><%= alert %></p>
+    <span class="pull-right close-parent">X</span>
+  </div>
 
 
 	<header>
