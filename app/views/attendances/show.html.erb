@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+  		<p>
+  			<strong>gone:</strong>
+  			<%= @attendance.gone %>
+		</p>
+  		<p>
+  			<strong>fieldPrice:</strong>
+  			<%= @attendance.fieldPrice %>
+		</p>
+  		<p>
+  			<strong>fee:</strong>
+  			<%= @attendance.fee %>
+		</p>
+
+<%= link_to 'Edit', edit_attendance_path(@attendance) %> |
+<%= link_to 'Back', attendances_path %>

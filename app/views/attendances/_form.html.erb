@@ -1,0 +1,30 @@
+<%= form_for(@attendance,builder: BootstrapFormBuilder) do |f| %>
+  <% if @attendance.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@attendance.errors.count, "error") %> prohibited this empresa from being saved:</h2>
+
+      <ul>
+      <% @attendance.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+     
+    <%= f.label :gone %><br>
+      <%= f.check_box :gone %>
+    
+      <%= f.number_field :fieldPrice, class: :text_field, step: :any %>
+    
+      <%= f.number_field :fee, class: :text_field, step: :any %>
+    
+    <%= f.label :Player %><br>
+    <%= f.select(:player_id, options_for_select(@player)) %>
+    
+    <%= f.label :Saving %><br>
+    <%= f.select(:saving_id, options_for_select(@saving)) %>
+    
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

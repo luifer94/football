@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+<div class='card large-padding'>
+<h1>Listing Savings</h1>
+
+<table class='table table-striped table-hover'>
+  <thead>
+    <tr>
+		<th>date</th>
+		<th>begin</th>
+		<th>end</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+     <% @savings.each do |saving| %>
+      <tr>
+  		<td><%= saving.date %></td>
+  		<td><%= saving.begin %></td>
+  		<td><%= saving.end %></td>
+        <td><%= link_to 'Show', saving %></td>
+        <td><%= link_to 'Edit', edit_saving_path(saving)  %></td>
+        <td><%= link_to 'Destroy', saving, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Saving', new_saving_path %>
+</div>

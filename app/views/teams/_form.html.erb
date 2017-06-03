@@ -1,0 +1,26 @@
+<%= form_for(@team,builder: BootstrapFormBuilder) do |f| %>
+  <% if @team.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@team.errors.count, "error") %> prohibited this empresa from being saved:</h2>
+
+      <ul>
+      <% @team.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+     
+      <%= f.text_field :name %>
+    
+    <%= f.collection_check_boxes :player_ids, Player.all, :id, :id do |b| %>
+          <div class="collection-check-box">
+            <%= b.check_box %>
+            <%= b.label %>
+          </div>
+        <% end %>
+    
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

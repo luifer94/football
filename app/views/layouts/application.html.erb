@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Aplicacion</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="blue white-text large-padding bold text-center" style="display:none;">
+		<p class="no-padding no-margin inline-block"></p>
+		<span class="pull-right close-parent">X</span>
+	</div>
+
+
+	<header>
+  <nav class='green'>
+    <ul class='no-list no-padding text-center'>
+      <li class='col-md-12 inline-block tall-padding white-text'>
+        <a class="right-space blue-text" rel="nofollow" data-method="delete" href="/users/sign_out">Cerrar sesión</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+	<div class="col-md-11 no-float center-block">
+		
+		<%= yield %>
+	</div>
+</body>
+</html>

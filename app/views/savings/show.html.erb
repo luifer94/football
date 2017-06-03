@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+  		<p>
+  			<strong>date:</strong>
+  			<%= @saving.date %>
+		</p>
+  		<p>
+  			<strong>begin:</strong>
+  			<%= @saving.begin %>
+		</p>
+  		<p>
+  			<strong>end:</strong>
+  			<%= @saving.end %>
+		</p>
+
+<%= link_to 'Edit', edit_saving_path(@saving) %> |
+<%= link_to 'Back', savings_path %>

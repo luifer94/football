@@ -1,0 +1,41 @@
+<%= form_for(@saving,builder: BootstrapFormBuilder) do |f| %>
+  <% if @saving.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@saving.errors.count, "error") %> prohibited this empresa from being saved:</h2>
+
+      <ul>
+      <% @saving.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+     
+      <%= f.date_field :date %>
+    
+      <%= f.time_field :begin %>
+    
+      <%= f.time_field :end %>
+    
+    <%= f.label :Player %><br>
+    <%= f.select(:player_id, options_for_select(@player)) %>
+    
+    <%= f.collection_check_boxes :attendance_ids, Attendance.all, :id, :id do |b| %>
+          <div class="collection-check-box">
+            <%= b.check_box %>
+            <%= b.label %>
+          </div>
+        <% end %>
+    
+    <%= f.label :Field %><br>
+    <%= f.collection_check_boxes :field_ids, Field.all, :id, :id do |b| %>
+          <div class="collection-check-box">
+            <%= b.check_box %>
+            <%= b.label %>
+          </div>
+        <% end %>
+    
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

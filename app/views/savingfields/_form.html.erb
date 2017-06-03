@@ -1,0 +1,23 @@
+<%= form_for(@savingfield,builder: BootstrapFormBuilder) do |f| %>
+  <% if @savingfield.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@savingfield.errors.count, "error") %> prohibited this empresa from being saved:</h2>
+
+      <ul>
+      <% @savingfield.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+     
+    <%= f.label :Saving %><br>
+    <%= f.select(:saving_id, options_for_select(@saving)) %>
+    
+    <%= f.label :Field %><br>
+    <%= f.select(:field_id, options_for_select(@field)) %>
+    
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
