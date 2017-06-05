@@ -6,11 +6,11 @@
 		</p>
   		<p>
   			<strong>begin:</strong>
-  			<%= @saving.begin %>
+  			<%= @saving.begin.strftime("%I:%M%p") %>
 		</p>
   		<p>
   			<strong>end:</strong>
-  			<%= @saving.end %>
+  			<%= @saving.end.strftime("%I:%M%p") %>
 		</p>
 
 <%= link_to 'Edit', edit_saving_path(@saving) %> |

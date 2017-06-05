@@ -21,6 +21,8 @@ class SavingfieldsController < ApplicationController
 
   # GET /savingfields/1/edit
   def edit
+  @saving=Saving.all
+  @field=Field.all
   end
 
   # POST /savingfields

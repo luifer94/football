@@ -13,7 +13,7 @@
      
       <%= f.text_field :name %>
     
-    <%= f.collection_check_boxes :player_ids, Player.all, :id, :id do |b| %>
+    <%= f.collection_check_boxes :player_ids, Player.all, :id, :nickName do |b| %>
           <div class="collection-check-box">
             <%= b.check_box %>
             <%= b.label %>

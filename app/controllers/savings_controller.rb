@@ -15,18 +15,18 @@ class SavingsController < ApplicationController
   # GET /savings/new
   def new
   @saving = Saving.new
-  @player=Player.all
+  @player= Player.toShow
   end
 
   # GET /savings/1/edit
   def edit
+  @player=Player.toShow
   end
 
   # POST /savings
   # POST /savings.json
   def create
     @saving = Saving.new(saving_params)
-  	@player=Player.all
     respond_to do |format|
       if @saving.save
         format.html { redirect_to @saving, mensaje: 'La/el Saving fue creada satisfactoriamente.' }
@@ -62,15 +62,22 @@ class SavingsController < ApplicationController
     end
   end
 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_saving
       @saving = Saving.find(params[:id])
     end
 
+
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def saving_params
 	  
        params.require(:saving).permit( :date, :begin, :end, :player_id, attendance_ids:[], field_ids:[])
+    end
+
+    def to_select
+
     end
 end

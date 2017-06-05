@@ -15,20 +15,24 @@ class AttendancesController < ApplicationController
   # GET /attendances/new
   def new
   @attendance = Attendance.new
-  @player=Player.all
-  @saving=Saving.all
+  @player=Player.toShow
+  @saving=Saving.toShow
   end
 
   # GET /attendances/1/edit
   def edit
+  @player=Player.toShow
+  @saving=Saving.toShow
   end
 
+  def asistenciajugador
+    @players= Player.all
+  end
+  
   # POST /attendances
   # POST /attendances.json
   def create
     @attendance = Attendance.new(attendance_params)
-  	@player=Player.all
-  	@saving=Saving.all
     respond_to do |format|
       if @attendance.save
         format.html { redirect_to @attendance, mensaje: 'La/el Attendance fue creada satisfactoriamente.' }
@@ -64,6 +68,8 @@ class AttendancesController < ApplicationController
     end
   end
 
+  def guia
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_attendance

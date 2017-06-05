@@ -16,8 +16,8 @@
      <% @savings.each do |saving| %>
       <tr>
   		<td><%= saving.date %></td>
-  		<td><%= saving.begin %></td>
-  		<td><%= saving.end %></td>
+  		<td><%= saving.begin.strftime("%I:%M%p") %></td>
+  		<td><%= saving.end.strftime("%I:%M%p") %></td>
         <td><%= link_to 'Show', saving %></td>
         <td><%= link_to 'Edit', edit_saving_path(saving)  %></td>
         <td><%= link_to 'Destroy', saving, method: :delete, data: { confirm: 'Are you sure?' } %></td>

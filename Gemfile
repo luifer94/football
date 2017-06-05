@@ -23,7 +23,6 @@ gem 'bootstrap-material-design'
 gem 'annotate'
 gem 'figaro'
 gem 'chart-js-rails'
-gem 'devise'
 group :development, :test do
   gem 'byebug', platform: :mri
 end

@@ -20,15 +20,8 @@
     <%= f.label :Player %><br>
     <%= f.select(:player_id, options_for_select(@player)) %>
     
-    <%= f.collection_check_boxes :attendance_ids, Attendance.all, :id, :id do |b| %>
-          <div class="collection-check-box">
-            <%= b.check_box %>
-            <%= b.label %>
-          </div>
-        <% end %>
-    
     <%= f.label :Field %><br>
-    <%= f.collection_check_boxes :field_ids, Field.all, :id, :id do |b| %>
+    <%= f.collection_check_boxes :field_ids, Field.all, :id, :name do |b| %>
           <div class="collection-check-box">
             <%= b.check_box %>
             <%= b.label %>

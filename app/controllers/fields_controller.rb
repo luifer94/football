@@ -15,18 +15,19 @@ class FieldsController < ApplicationController
   # GET /fields/new
   def new
   @field = Field.new
-  @establishment=Establishment.all
+  @establishment=Establishment.toShow
   end
 
   # GET /fields/1/edit
   def edit
+  @establishment=Establishment.toShow
   end
 
   # POST /fields
   # POST /fields.json
   def create
     @field = Field.new(field_params)
-  	@establishment=Establishment.all
+  	@establishment=Establishment.toShow
     respond_to do |format|
       if @field.save
         format.html { redirect_to @field, mensaje: 'La/el Field fue creada satisfactoriamente.' }

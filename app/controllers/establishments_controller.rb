@@ -66,6 +66,9 @@ class EstablishmentsController < ApplicationController
       @establishment = Establishment.find(params[:id])
     end
 
+    def guia
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def establishment_params
 	  

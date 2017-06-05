@@ -15,18 +15,19 @@ class PlayersController < ApplicationController
   # GET /players/new
   def new
   @player = Player.new
-  @team=Team.all
+  @team=Team.toShow
   end
 
   # GET /players/1/edit
   def edit
+  @team=Team.toShow
   end
 
   # POST /players
   # POST /players.json
   def create
     @player = Player.new(player_params)
-  	@team=Team.all
+  	@team=Team.toShow
     respond_to do |format|
       if @player.save
         format.html { redirect_to @player, mensaje: 'La/el Player fue creada satisfactoriamente.' }
