@@ -23,8 +23,13 @@ gem 'bootstrap-material-design'
 gem 'annotate'
 gem 'figaro'
 gem 'chart-js-rails'
+gem 'mysql2','~> 0.3.9'
+gem 'faker', '~> 1.7', '>= 1.7.2'
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem 'shoulda-matchers'
+  gem 'rspec-rails'
+  gem "factory_girl_rails", "~> 4.0"
 end
 group :development do
   gem 'web-console', '>= 3.3.0'

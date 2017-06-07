@@ -15,7 +15,10 @@
 class Attendance < ActiveRecord::Base
 	belongs_to :player
 	belongs_to :saving
-def to_s
-   #put your own code here
-end
+	validates_presence_of :gone,:fieldPrice,:fee
+	validates :fieldPrice, numericality: { greater_than: 0 }
+	validates :fee, numericality: { greater_than: 0 }
+	def to_s
+		#put your own code here
+	end
 end 

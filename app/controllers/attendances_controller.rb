@@ -14,9 +14,9 @@ class AttendancesController < ApplicationController
 
   # GET /attendances/new
   def new
-  @attendance = Attendance.new
   @player=Player.toShow
   @saving=Saving.toShow
+  @attendance = Attendance.new
   end
 
   # GET /attendances/1/edit
@@ -39,6 +39,8 @@ class AttendancesController < ApplicationController
         format.json { render :show, status: :created, location: @attendance }
       else
         format.html { render :new }
+          @player=Player.toShow
+          @saving=Saving.toShow
         format.json { render json: @attendance.errors, status: :unprocessable_entity }
       end
     end

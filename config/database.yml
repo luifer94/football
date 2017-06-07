@@ -10,8 +10,15 @@ default: &default
   timeout: 5000
 
 development:
-  <<: *default
-  database: db/development.sqlite3
+    adapter: mysql2
+    database: footballdb
+    password: hw1234      
+    username: root
+    host: localhost
+    port: 3306
+    pool: 5
+    timeout: 5000
+    encoding: utf8
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

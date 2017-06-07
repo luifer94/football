@@ -5,8 +5,7 @@ class CreateFields < ActiveRecord::Migration
 		t.string :name
 		t.float :price
 		t.integer :size
-		t.references :establishment, index: true
-		add_foreign_key :establishments, :fields
+		t.references :establishment, index: true, foreign_key: true
 	    t.timestamps null: false
 	end
   end
