@@ -26,7 +26,6 @@ gem 'chart-js-rails'
 gem 'mysql2','~> 0.3.9'
 gem 'faker', '~> 1.7', '>= 1.7.2'
 gem 'rails-perftest'
-gem 'secure_headers'
 gem 'ruby-prof', group: :test
 gem 'test-unit', group: :test
 group :development, :test do
