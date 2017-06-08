@@ -91,4 +91,11 @@ ActiveRecord::Schema.define(version: 20170603135425) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "attendances", "players"
+  add_foreign_key "attendances", "savings"
+  add_foreign_key "fields", "establishments"
+  add_foreign_key "players", "teams"
+  add_foreign_key "savingfields", "fields"
+  add_foreign_key "savingfields", "savings"
+  add_foreign_key "savings", "players"
 end

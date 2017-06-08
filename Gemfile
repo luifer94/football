@@ -30,9 +30,7 @@ gem 'ruby-prof', group: :test
 gem 'test-unit', group: :test
 group :development, :test do
   gem 'byebug', platform: :mri
-  gem 'shoulda-matchers'
-  gem 'rspec-rails'
-  gem "factory_girl_rails", "~> 4.0"
+
 end
 group :development do
   gem 'web-console', '>= 3.3.0'
@@ -46,3 +44,6 @@ group :development do
   gem 'capistrano-rvm'
 end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'shoulda-matchers'
+gem 'rspec-rails'
+gem "factory_girl_rails", "~> 4.0"
