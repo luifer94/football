@@ -16,7 +16,6 @@ Rails.application.routes.draw do
     get "/asistenciasJugadores/", to:"attendances#asistenciajugador",as: :asistencia_jugador    
   end
 
-
    unauthenticated :user do
     devise_scope :user do
       root "welcome#unregistered", as: :unregistered_root
