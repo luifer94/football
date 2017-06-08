@@ -12,69 +12,69 @@
 
 ActiveRecord::Schema.define(version: 20170603135425) do
 
-  create_table "attendances", force: :cascade do |t|
+  create_table "attendances", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.boolean  "gone"
-    t.float    "fieldPrice"
-    t.float    "fee"
+    t.float    "fieldPrice", limit: 24
+    t.float    "fee",        limit: 24
     t.integer  "player_id"
     t.integer  "saving_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["player_id"], name: "index_attendances_on_player_id"
-    t.index ["saving_id"], name: "index_attendances_on_saving_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.index ["player_id"], name: "index_attendances_on_player_id", using: :btree
+    t.index ["saving_id"], name: "index_attendances_on_saving_id", using: :btree
   end
 
-  create_table "establishments", force: :cascade do |t|
+  create_table "establishments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "fields", force: :cascade do |t|
+  create_table "fields", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.float    "price"
+    t.float    "price",            limit: 24
     t.integer  "size"
     t.integer  "establishment_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.index ["establishment_id"], name: "index_fields_on_establishment_id"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.index ["establishment_id"], name: "index_fields_on_establishment_id", using: :btree
   end
 
-  create_table "players", force: :cascade do |t|
+  create_table "players", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "nickName"
     t.integer  "team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["team_id"], name: "index_players_on_team_id"
+    t.index ["team_id"], name: "index_players_on_team_id", using: :btree
   end
 
-  create_table "savingfields", force: :cascade do |t|
+  create_table "savingfields", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "saving_id"
     t.integer  "field_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["field_id"], name: "index_savingfields_on_field_id"
-    t.index ["saving_id"], name: "index_savingfields_on_saving_id"
+    t.index ["field_id"], name: "index_savingfields_on_field_id", using: :btree
+    t.index ["saving_id"], name: "index_savingfields_on_saving_id", using: :btree
   end
 
-  create_table "savings", force: :cascade do |t|
+  create_table "savings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.date     "date"
     t.time     "begin"
     t.time     "end"
     t.integer  "player_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["player_id"], name: "index_savings_on_player_id"
+    t.index ["player_id"], name: "index_savings_on_player_id", using: :btree
   end
 
-  create_table "teams", force: :cascade do |t|
+  create_table "teams", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -87,8 +87,8 @@ ActiveRecord::Schema.define(version: 20170603135425) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
 end
